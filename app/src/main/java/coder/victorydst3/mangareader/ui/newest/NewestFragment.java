@@ -22,7 +22,6 @@ import coder.victorydst3.mangareader.BaseFragment;
 import coder.victorydst3.mangareader.Common.Constant;
 import coder.victorydst3.mangareader.R;
 import coder.victorydst3.mangareader.model.Manga;
-import coder.victorydst3.mangareader.ui.ListMangaAdapter;
 import coder.victorydst3.mangareader.ui.detail.DetailActivity_;
 
 /**

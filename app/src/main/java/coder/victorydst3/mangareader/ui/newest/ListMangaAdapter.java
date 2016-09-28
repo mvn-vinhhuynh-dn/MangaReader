@@ -1,4 +1,4 @@
-package coder.victorydst3.mangareader.ui;
+package coder.victorydst3.mangareader.ui.newest;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

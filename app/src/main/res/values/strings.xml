@@ -7,4 +7,18 @@
     <string name="author">Tác giả: %s</string>
     <string name="numChap">Số Chương: %s</string>
     <string name="status">Tình trạng%s</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
+    <string name="nav_item_home">Trang chủ</string>
+    <string name="nav_item_friends">Bạn bè</string>
+    <string name="nav_item_notifications">Tin nhắn</string>
+    <string name="title_home">Home</string>
+
+    <!-- navigation drawer item labels  -->
+    <string-array name="nav_drawer_labels">
+        <item>@string/nav_item_home</item>
+        <item>@string/nav_item_friends</item>
+        <item>@string/nav_item_notifications</item>
+    </string-array>
 </resources>
