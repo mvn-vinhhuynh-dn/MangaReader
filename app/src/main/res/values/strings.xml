@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MangaReader</string>
+    <string name="date_update">Ngày cập nhật: %s</string>
+    <string name="new_chap">Tập mới: %s</string>
+    <string name="category">Thể loại: %s</string>
+    <string name="num_read">Lần đọc: %s</string>
+    <string name="author">Tác giả: %s</string>
+    <string name="numChap">Số Chương: %s</string>
+    <string name="status">Tình trạng%s</string>
 </resources>

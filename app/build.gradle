@@ -59,6 +59,18 @@ dependencies {
 
     // jsoup HTML parser library @ http://jsoup.org/
     compile 'org.jsoup:jsoup:1.9.2'
+
+    // https://github.com/bumptech/glide
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+
+    compile 'com.jpardogo.materialtabstrip:library:1.1.0'
+
+    provided 'org.projectlombok:lombok:1.12.6'
+    apt "org.projectlombok:lombok:1.12.6"
+
+    // https://github.com/johncarl81/parceler
+    apt 'org.parceler:parceler:1.0.4'
+    compile 'org.parceler:parceler-api:1.0.4'
 }
 
 apply from: "https://raw.githubusercontent.com/tientun/gradle-android-ci-check/master/ci.gradle"
