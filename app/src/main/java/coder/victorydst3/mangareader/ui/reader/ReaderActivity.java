@@ -3,11 +3,9 @@ package coder.victorydst3.mangareader.ui.reader;
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 
@@ -31,6 +29,7 @@ import coder.victorydst3.mangareader.BaseActivity;
 import coder.victorydst3.mangareader.Common.Constant;
 import coder.victorydst3.mangareader.R;
 import coder.victorydst3.mangareader.util.ScriptParser;
+import uk.co.senab.photoview.PhotoView;
 
 /**
  * Copyright © 2016 AsianTech inc.
@@ -111,7 +110,7 @@ public class ReaderActivity extends BaseActivity {
         @Override
         public Object instantiateItem(ViewGroup container, final int position) {
             View itemView = mLayoutInflater.inflate(R.layout.item_manga_reader, container, false);
-            ImageView imgCampaign = (ImageView) itemView.findViewById(R.id.imgContent);
+            PhotoView imgCampaign = (PhotoView) itemView.findViewById(R.id.imgContent);
 
             Glide.with(mLayoutInflater.getContext())
                     .load(mUrls.get(position))

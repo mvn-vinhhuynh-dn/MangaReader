@@ -74,6 +74,9 @@ dependencies {
 
     // Keep you existing dependencies here
     compile 'com.github.evgenyneu:js-evaluator-for-android:v1.0.7'
+
+    // Zoom
+    compile 'com.commit451:PhotoView:1.2.5'
 }
 
 apply from: "https://raw.githubusercontent.com/tientun/gradle-android-ci-check/master/ci.gradle"
