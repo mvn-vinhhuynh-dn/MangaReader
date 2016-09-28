@@ -27,6 +27,7 @@ import coder.victorydst3.mangareader.R;
 import coder.victorydst3.mangareader.model.Chapter;
 import coder.victorydst3.mangareader.model.Manga;
 import coder.victorydst3.mangareader.model.MangaDetail;
+import coder.victorydst3.mangareader.ui.reader.ReaderActivity_;
 
 /**
  * Copyright © 2016 AsianTech inc.
@@ -112,5 +113,6 @@ public class DetailActivity extends BaseActivity implements OnReadMangaListener 
 
     @Override
     public void onReadMangaClick(String url) {
+        ReaderActivity_.intent(this).mUrl(url).start();
     }
 }

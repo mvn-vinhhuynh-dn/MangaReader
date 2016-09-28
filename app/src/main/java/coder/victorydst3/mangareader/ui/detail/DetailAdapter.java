@@ -122,7 +122,7 @@ public class DetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onReadMangaListener.onReadMangaClick(mangaDetail.getChapters().get(getLayoutPosition()).getProcessUrl());
+                    onReadMangaListener.onReadMangaClick(mangaDetail.getChapters().get(getLayoutPosition() - 1).getProcessUrl());
                 }
             });
         }

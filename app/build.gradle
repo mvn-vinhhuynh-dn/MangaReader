@@ -71,6 +71,9 @@ dependencies {
     // https://github.com/johncarl81/parceler
     apt 'org.parceler:parceler:1.0.4'
     compile 'org.parceler:parceler-api:1.0.4'
+
+    // Keep you existing dependencies here
+    compile 'com.github.evgenyneu:js-evaluator-for-android:v1.0.7'
 }
 
 apply from: "https://raw.githubusercontent.com/tientun/gradle-android-ci-check/master/ci.gradle"
