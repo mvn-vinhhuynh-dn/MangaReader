@@ -24,6 +24,7 @@ import coder.victorydst3.mangareader.Common.Constant;
 import coder.victorydst3.mangareader.R;
 import coder.victorydst3.mangareader.model.Manga;
 import coder.victorydst3.mangareader.ui.detail.DetailActivity_;
+import coder.victorydst3.mangareader.widget.SpacesItemDecoration;
 
 /**
  * Copyright © 2016 AsianTech inc.
@@ -47,6 +48,9 @@ public class NewestFragment extends BaseFragment implements ListMangaAdapter.OnI
     void AfterViews() {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), NUM_OF_COLUMN);
         mRecyclerView.setLayoutManager(gridLayoutManager);
+
+        int spacingInPixels = getResources().getDimensionPixelSize(R.dimen.spacing);
+        mRecyclerView.addItemDecoration(new SpacesItemDecoration(spacingInPixels));
 
         mAdapter = new ListMangaAdapter(getActivity(), mData, this);
         mRecyclerView.setAdapter(mAdapter);
