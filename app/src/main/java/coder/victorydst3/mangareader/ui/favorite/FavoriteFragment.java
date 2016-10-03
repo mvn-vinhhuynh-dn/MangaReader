@@ -1,4 +1,4 @@
-package coder.victorydst3.mangareader.ui.home;
+package coder.victorydst3.mangareader.ui.favorite;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
@@ -9,16 +9,15 @@ import coder.victorydst3.mangareader.R;
 
 /**
  * Copyright © 2016 AsianTech inc.
- * Created by VinhHLB on 9/27/16.
+ * Created by VinhHLB on 10/3/16.
  */
-
-@EFragment(R.layout.fragment_home)
-public class HomeFragment extends BaseFragment {
+@EFragment(R.layout.fragment_favorite)
+public class FavoriteFragment extends BaseFragment {
     @FragmentArg
     String mFragmentTag;
 
     @AfterViews
-    void AfterViews() {
-        setTitle("Home");
+    void afterViews() {
+        setTitle("Favorite");
     }
 }

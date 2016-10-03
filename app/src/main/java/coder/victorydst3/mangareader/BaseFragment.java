@@ -19,4 +19,8 @@ public class BaseFragment extends Fragment {
             throw new ClassCastException(activity.toString() + " must implement OnBaseActivityListener");
         }
     }
+
+    public void setTitle (String title){
+        ((MainActivity)mActivity).getMToolBar().setToolBarTitle(title);
+    }
 }

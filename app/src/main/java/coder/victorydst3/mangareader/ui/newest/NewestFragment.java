@@ -1,11 +1,12 @@
 package coder.victorydst3.mangareader.ui.newest;
 
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.FragmentArg;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 import org.jsoup.Jsoup;
@@ -30,6 +31,9 @@ import coder.victorydst3.mangareader.ui.detail.DetailActivity_;
  */
 @EFragment(R.layout.fragment_newest)
 public class NewestFragment extends BaseFragment implements ListMangaAdapter.OnItemMangaClickListenner {
+    @FragmentArg
+    String mFragmentTag;
+
     @ViewById(R.id.recyclerView)
     RecyclerView mRecyclerView;
 
@@ -38,11 +42,10 @@ public class NewestFragment extends BaseFragment implements ListMangaAdapter.OnI
     private ListMangaAdapter mAdapter;
     private List<Manga> mData = new ArrayList<>();
 
-    private LinearLayoutManager mLinearLayoutManager;
-
     @AfterViews
     void AfterViews() {
-        mLinearLayoutManager = new LinearLayoutManager(getActivity());
+        setTitle("Newest");
+        GridLayoutManager mLinearLayoutManager = new GridLayoutManager(getActivity(), 3);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
         mAdapter = new ListMangaAdapter(getActivity(), mData, this);
         mRecyclerView.setAdapter(mAdapter);
