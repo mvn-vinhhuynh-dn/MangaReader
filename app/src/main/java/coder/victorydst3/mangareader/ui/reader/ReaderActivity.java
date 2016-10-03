@@ -43,11 +43,11 @@ public class ReaderActivity extends BaseActivity {
     @Extra
     String mUrl;
     private List<String> mListUrl = new ArrayList<>();
-    private CampaignAdapter mAdapter;
+    private ReaderAdapter mAdapter;
 
     @AfterViews
     void AfterViews() {
-        mAdapter = new CampaignAdapter(this, mListUrl);
+        mAdapter = new ReaderAdapter(this, mListUrl);
         getData();
     }
 
@@ -88,11 +88,11 @@ public class ReaderActivity extends BaseActivity {
     /**
      * Class adapter for viewPager
      */
-    private static class CampaignAdapter extends PagerAdapter {
+    private static class ReaderAdapter extends PagerAdapter {
         final LayoutInflater mLayoutInflater;
         private List<String> mUrls;
 
-        CampaignAdapter(Context context, List<String> urls) {
+        ReaderAdapter(Context context, List<String> urls) {
             mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             mUrls = urls;
         }
