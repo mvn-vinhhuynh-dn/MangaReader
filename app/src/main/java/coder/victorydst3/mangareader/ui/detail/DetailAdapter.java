@@ -19,7 +19,7 @@ import coder.victorydst3.mangareader.model.MangaDetail;
  * Created by VinhHLB on 9/27/16.
  */
 
-public class DetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+class DetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     /**
      * Enum define for item type
      */
@@ -31,7 +31,7 @@ public class DetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     private final MangaDetail mMangaDetail;
     private final OnReadMangaListener mOnReadMangaListener;
 
-    public DetailAdapter(Context context, MangaDetail mangaDetail, OnReadMangaListener onReadMangaListener) {
+    DetailAdapter(Context context, MangaDetail mangaDetail, OnReadMangaListener onReadMangaListener) {
         mContext = context;
         mMangaDetail = mangaDetail;
         mOnReadMangaListener = onReadMangaListener;
