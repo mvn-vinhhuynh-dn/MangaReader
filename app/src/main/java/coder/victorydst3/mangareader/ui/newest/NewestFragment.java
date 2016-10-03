@@ -31,6 +31,7 @@ import coder.victorydst3.mangareader.ui.detail.DetailActivity_;
  */
 @EFragment(R.layout.fragment_newest)
 public class NewestFragment extends BaseFragment implements ListMangaAdapter.OnItemMangaClickListenner {
+    private static final int NUM_OF_COLUMN = 3;
     @FragmentArg
     String mFragmentTag;
 
@@ -44,10 +45,20 @@ public class NewestFragment extends BaseFragment implements ListMangaAdapter.OnI
 
     @AfterViews
     void AfterViews() {
-        GridLayoutManager mLinearLayoutManager = new GridLayoutManager(getActivity(), 3);
-        mRecyclerView.setLayoutManager(mLinearLayoutManager);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), NUM_OF_COLUMN);
+        mRecyclerView.setLayoutManager(gridLayoutManager);
+
         mAdapter = new ListMangaAdapter(getActivity(), mData, this);
         mRecyclerView.setAdapter(mAdapter);
+        gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                if (position != 0) {
+                    return 1;
+                }
+                return NUM_OF_COLUMN;
+            }
+        });
         loadData();
     }
 
