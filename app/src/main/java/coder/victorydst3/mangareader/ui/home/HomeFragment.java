@@ -19,6 +19,5 @@ public class HomeFragment extends BaseFragment {
 
     @AfterViews
     void AfterViews() {
-        setTitle("Home");
     }
 }

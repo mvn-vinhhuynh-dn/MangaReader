@@ -9,7 +9,6 @@ import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
 import coder.victorydst3.mangareader.widget.HeaderBar;
-import lombok.Getter;
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends BaseActivity {
@@ -21,12 +20,13 @@ public class MainActivity extends BaseActivity {
 
     ViewPagerAdapter mViewPagerAdapter;
     @ViewById(R.id.toolbar)
-    @Getter
     HeaderBar mToolBar;
 
     @AfterViews
     void afterViews() {
+        mToolBar.setToolBarTitle(ViewPagerAdapter.mCategories[0]);
         mViewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), this);
+        mViewPager.setOffscreenPageLimit(3);
         mViewPager.setAdapter(mViewPagerAdapter);
         mTabTrip.setViewPager(mViewPager);
 
@@ -37,6 +37,7 @@ public class MainActivity extends BaseActivity {
 
             @Override
             public void onPageSelected(int position) {
+                mToolBar.setToolBarTitle(ViewPagerAdapter.mCategories[position]);
             }
 
             @Override

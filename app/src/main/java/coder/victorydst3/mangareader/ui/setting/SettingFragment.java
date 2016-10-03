@@ -18,6 +18,5 @@ public class SettingFragment extends BaseFragment {
 
     @AfterViews
     void afterViews() {
-        setTitle("Setting");
     }
 }

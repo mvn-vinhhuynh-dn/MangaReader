@@ -19,8 +19,9 @@
             android:id="@+id/tvToolBarTitle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center"
             android:textColor="@android:color/white"
-            android:textSize="12dp" />
+            android:textSize="18dp" />
 
     </LinearLayout>
 </android.support.v7.widget.Toolbar>

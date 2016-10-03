@@ -44,7 +44,6 @@ public class NewestFragment extends BaseFragment implements ListMangaAdapter.OnI
 
     @AfterViews
     void AfterViews() {
-        setTitle("Newest");
         GridLayoutManager mLinearLayoutManager = new GridLayoutManager(getActivity(), 3);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
         mAdapter = new ListMangaAdapter(getActivity(), mData, this);

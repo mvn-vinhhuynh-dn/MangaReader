@@ -18,6 +18,5 @@ public class FavoriteFragment extends BaseFragment {
 
     @AfterViews
     void afterViews() {
-        setTitle("Favorite");
     }
 }

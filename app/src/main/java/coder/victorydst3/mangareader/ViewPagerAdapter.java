@@ -16,7 +16,7 @@ import coder.victorydst3.mangareader.ui.setting.SettingFragment_;
  */
 
 class ViewPagerAdapter extends FragmentStatePagerAdapter {
-    private static final String[] mCategories = {"Newest", "Home", "Favorite", "Setting"};
+    public static final String[] mCategories = {"Newest", "Home", "Favorite", "Setting"};
 
     ViewPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
