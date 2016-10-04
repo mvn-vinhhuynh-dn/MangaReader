@@ -9,5 +9,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/transparent" />
+
+    <coder.victorydst3.mangareader.widget.ProgressDialogView
+        android:id="@+id/progressDialog"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
 </RelativeLayout>
 
