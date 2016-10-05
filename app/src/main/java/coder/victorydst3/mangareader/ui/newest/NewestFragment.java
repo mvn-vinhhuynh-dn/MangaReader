@@ -2,6 +2,7 @@ package coder.victorydst3.mangareader.ui.newest;
 
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
@@ -24,6 +25,7 @@ import coder.victorydst3.mangareader.Common.Constant;
 import coder.victorydst3.mangareader.R;
 import coder.victorydst3.mangareader.model.Manga;
 import coder.victorydst3.mangareader.ui.detail.DetailActivity_;
+import coder.victorydst3.mangareader.widget.ProgressDialogView;
 import coder.victorydst3.mangareader.widget.SpacesItemDecoration;
 
 /**
@@ -38,6 +40,8 @@ public class NewestFragment extends BaseFragment implements ListMangaAdapter.OnI
 
     @ViewById(R.id.recyclerView)
     RecyclerView mRecyclerView;
+    @ViewById(R.id.progressDialog)
+    ProgressDialogView mProgressDialogView;
 
     private static final String NEWEST_DOMAIN = "truyen-moi-nhat.html";
 
@@ -68,6 +72,7 @@ public class NewestFragment extends BaseFragment implements ListMangaAdapter.OnI
 
     @Background
     void loadData() {
+        mProgressDialogView.setVisibility(View.VISIBLE);
         Document document = null;
         try {
             document = Jsoup.connect(Constant.BASE_URL + NEWEST_DOMAIN)
@@ -150,6 +155,7 @@ public class NewestFragment extends BaseFragment implements ListMangaAdapter.OnI
 
     @UiThread
     void UpdateUI() {
+        mProgressDialogView.setVisibility(View.GONE);
         mAdapter.notifyDataSetChanged();
     }
 
