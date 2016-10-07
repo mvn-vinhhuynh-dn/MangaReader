@@ -1,6 +1,5 @@
 package coder.victorydst3.mangareader.ui.home;
 
-import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.FragmentArg;
 
@@ -17,7 +16,9 @@ public class HomeFragment extends BaseFragment {
     @FragmentArg
     String mFragmentTag;
 
-    @AfterViews
-    void AfterViews() {
+
+    @Override
+    protected void afterView() {
+
     }
 }

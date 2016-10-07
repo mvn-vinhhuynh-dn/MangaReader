@@ -1,6 +1,7 @@
 package coder.victorydst3.mangareader.ui.detail;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import coder.victorydst3.mangareader.BaseAdapter;
 import coder.victorydst3.mangareader.OnReadMangaListener;
 import coder.victorydst3.mangareader.R;
 import coder.victorydst3.mangareader.model.MangaDetail;
@@ -19,7 +21,7 @@ import coder.victorydst3.mangareader.model.MangaDetail;
  * Created by VinhHLB on 9/27/16.
  */
 
-public class DetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class DetailAdapter extends BaseAdapter<RecyclerView.ViewHolder> {
     /**
      * Enum define for item type
      */
@@ -31,7 +33,8 @@ public class DetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     private final MangaDetail mMangaDetail;
     private final OnReadMangaListener mOnReadMangaListener;
 
-    public DetailAdapter(Context context, MangaDetail mangaDetail, OnReadMangaListener onReadMangaListener) {
+    public DetailAdapter(@NonNull Context context, MangaDetail mangaDetail, OnReadMangaListener onReadMangaListener) {
+        super(context);
         mContext = context;
         mMangaDetail = mangaDetail;
         mOnReadMangaListener = onReadMangaListener;
@@ -77,6 +80,7 @@ public class DetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             itemViewHolder.mTvContent.setText(mMangaDetail.getChapters().get(position - 1).getTitle());
         }
     }
+
 
     @Override
     public int getItemCount() {

@@ -19,8 +19,7 @@
         android:layout_alignParentBottom="true"
         android:background="@color/main_color"
         app:pstsIndicatorColor="@android:color/transparent"
-        app:pstsShouldExpand="true"
-        app:pstsTabTextColor="@android:color/white" />
+        app:pstsShouldExpand="true"/>
 
     <coder.victorydst3.mangareader.widget.HeaderBar_
         android:id="@+id/toolbar"

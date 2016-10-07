@@ -1,6 +1,5 @@
 package coder.victorydst3.mangareader.ui.setting;
 
-import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.FragmentArg;
 
@@ -16,7 +15,9 @@ public class SettingFragment extends BaseFragment {
     @FragmentArg
     String mFragmentTag;
 
-    @AfterViews
-    void afterViews() {
+
+    @Override
+    protected void afterView() {
+
     }
 }

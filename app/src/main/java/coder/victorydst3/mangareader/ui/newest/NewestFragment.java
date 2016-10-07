@@ -3,7 +3,6 @@ package coder.victorydst3.mangareader.ui.newest;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.FragmentArg;
@@ -44,8 +43,8 @@ public class NewestFragment extends BaseFragment implements ListMangaAdapter.OnI
     private ListMangaAdapter mAdapter;
     private List<Manga> mData = new ArrayList<>();
 
-    @AfterViews
-    void AfterViews() {
+    protected void afterView() {
+
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), NUM_OF_COLUMN);
         mRecyclerView.setLayoutManager(gridLayoutManager);
 
@@ -156,6 +155,8 @@ public class NewestFragment extends BaseFragment implements ListMangaAdapter.OnI
     @Override
     public void onItemClick(int position) {
         Manga manga = mData.get(position);
-        DetailActivity_.intent(this).mManga(Parcels.wrap(manga)).start();
+        replaceFragment(DetailActivity_.builder().mManga(Parcels.wrap(manga)).build(), true);
+//        DetailActivity_.intent(this).mManga(Parcels.wrap(manga)).start();
     }
 }
+
