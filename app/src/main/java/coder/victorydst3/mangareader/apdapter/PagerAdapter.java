@@ -6,9 +6,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -53,21 +50,11 @@ public class PagerAdapter extends FragmentPagerAdapter implements PagerSlidingTa
 
     @Override
     public View getView(final int position) {
-        View v = LayoutInflater.from(mContext).inflate(R.layout.layout_tab_item, null, false);
-        TextView title = (TextView) v.findViewById(R.id.title);
-        final RelativeLayout rlTab = (RelativeLayout) v.findViewById(R.id.rlTab);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.layout_tab_item, null, false);
+        TextView title = (TextView) view.findViewById(R.id.title);
+        title.setAllCaps(false);
         title.setText(tabItems.get(position).getTitle());
-        final ImageView icon = (ImageView) v.findViewById(R.id.thumb);
-        icon.setImageResource(tabItems.get(position).getDrawableResource());
-
-        int width = 0;
-        final LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        );
-
-
-        return v;
+        return view;
     }
 
     @Override

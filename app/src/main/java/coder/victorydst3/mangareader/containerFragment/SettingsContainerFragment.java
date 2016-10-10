@@ -5,16 +5,17 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
 
 import coder.victorydst3.mangareader.R;
+import coder.victorydst3.mangareader.ui.setting.SettingFragment_;
 
 /**
- * Created by TienLQ on 6/2/16
+ * Created by LanTM on 06/10/16
  */
 @EFragment(R.layout.container_fragment)
-public class ChatContainerFragment extends BaseContainerFragment {
+public class SettingsContainerFragment extends BaseContainerFragment {
 
     @AfterViews
     protected void afterView() {
-//        replaceFragment(ChatFragment_.builder().build(), false);
+        replaceFragment(SettingFragment_.builder().build(), false);
     }
 
 }

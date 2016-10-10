@@ -85,7 +85,7 @@ public class DetailAdapter extends BaseAdapter<RecyclerView.ViewHolder> {
     @Override
     public int getItemCount() {
         if (mMangaDetail == null) {
-            return 0;
+            return 2;
         }
         return mMangaDetail.getChapters().size() + 1;
     }

@@ -3,12 +3,11 @@ package coder.victorydst3.mangareader.ui.detail;
 import android.os.Parcelable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
-import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.FragmentArg;
-import org.androidannotations.annotations.ViewById;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -36,8 +35,6 @@ import coder.victorydst3.mangareader.ui.reader.ReaderActivity_;
 @EFragment(R.layout.activity_detail)
 public class DetailActivity extends BaseListFragment<LoadMoreAdapter> implements OnReadMangaListener {
     private static final String TAG = DetailActivity.class.getSimpleName();
-    @ViewById(R.id.recyclerView)
-    RecyclerView mRecyclerView;
 
     @FragmentArg
     Parcelable mManga;
@@ -48,16 +45,15 @@ public class DetailActivity extends BaseListFragment<LoadMoreAdapter> implements
     private MangaDetail mDetail;
     private List<Chapter> mChapters = new ArrayList<>();
 
-    @AfterViews
-    void AfterViews() {
-
-    }
     @Override
     protected void afterView() {
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        super.afterView();
+        mAdapter = new DetailAdapter(getActivity(), mDetail, this);
         mData = (Manga) Parcels.unwrap(mManga);
         getDetail();
+
     }
+
     @Background
     void getDetail() {
         Document document = null;
@@ -102,17 +98,21 @@ public class DetailActivity extends BaseListFragment<LoadMoreAdapter> implements
         String status = lis_detail.get(4).select("div.item2").text();
         mData.setStatus(status);
         mData.setImageUrl(imgThub);
-//        mDetail.setManga(mData);
-//        mDetail.setChapters(mChapters);
-        mDetail = MangaDetail.builder().chapters(mChapters).manga(mData).build();
-//        UpdateUI();
+        if (mDetail != null) {
+            mDetail.setManga(mData);
+            mDetail.setChapters(mChapters);
+            mDetail = MangaDetail.builder().chapters(mChapters).manga(mData).build();
+            getAdapter().notifyDataSetChanged();
+            Log.d("DetailActivity", "parserData");
+
+        } else {
+            Log.d("DetailActivity", "mDetail null");
+
+        }
+
+
     }
 
-//    @UiThread
-//    void UpdateUI() {
-//        mAdapter = new DetailAdapter(this, mDetail, this);
-//        mRecyclerView.setAdapter(mAdapter);
-//    }
 
     @Override
     public void onReadMangaClick(String url) {
@@ -121,7 +121,7 @@ public class DetailActivity extends BaseListFragment<LoadMoreAdapter> implements
 
     @Override
     protected LoadMoreAdapter initAdapter() {
-        mAdapter = new DetailAdapter(getActivity(), mDetail, this);
+        Log.d("DetailActivity", "initAdapter");
         return new LoadMoreAdapter(getActivity(), mAdapter);
     }
 

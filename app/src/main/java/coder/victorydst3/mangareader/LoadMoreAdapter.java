@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 
-
 /**
  * Created by lantm-mac-air on 3/29/16
  * <p/>
@@ -37,8 +36,9 @@ public class LoadMoreAdapter extends BaseAdapter {
             View view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.item_load_more, parent, false);
             return new LoadMoreHolder(view);
+        } else {
+            return mAdapter.onCreateViewHolder(parent, viewType);
         }
-        return mAdapter.onCreateViewHolder(parent, viewType - 1);
     }
 
     @Override
@@ -61,7 +61,7 @@ public class LoadMoreAdapter extends BaseAdapter {
      */
     @Override
     public int getItemCount() {
-        return mAdapter.getItemCount() + 1;
+        return mAdapter == null ? 0 : mAdapter.getItemCount() + 1;
     }
 
     @Override

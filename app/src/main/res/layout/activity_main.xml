@@ -9,17 +9,17 @@
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/tabStrip"
+        android:layout_above="@+id/tabs"
         android:layout_below="@+id/toolbar" />
 
-    <com.astuetz.PagerSlidingTabStrip
-        android:id="@+id/tabStrip"
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabs"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/main_color"
-        app:pstsIndicatorColor="@android:color/transparent"
-        app:pstsShouldExpand="true"/>
+        app:tabTextAppearance="@style/LayoutTextAppearance"
+        app:tabIndicatorHeight="0dp"
+        android:background="@color/main_color" />
 
     <coder.victorydst3.mangareader.widget.HeaderBar_
         android:id="@+id/toolbar"

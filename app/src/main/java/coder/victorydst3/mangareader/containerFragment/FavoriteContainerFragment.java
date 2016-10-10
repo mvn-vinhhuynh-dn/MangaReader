@@ -5,16 +5,17 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
 
 import coder.victorydst3.mangareader.R;
+import coder.victorydst3.mangareader.ui.favorite.FavoriteFragment_;
 
 /**
  * Created by LanTM on 06/10/16
  */
 @EFragment(R.layout.container_fragment)
-public class RewardContainerFragment extends BaseContainerFragment {
+public class FavoriteContainerFragment extends BaseContainerFragment {
 
     @AfterViews
     protected void afterView() {
-//        replaceFragment(RewardFragment_.builder().build(), false);
+        replaceFragment(FavoriteFragment_.builder().build(), false);
     }
 
 }

@@ -5,16 +5,17 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
 
 import coder.victorydst3.mangareader.R;
+import coder.victorydst3.mangareader.ui.newest.NewestFragment_;
 
 /**
- * Created by LanTM on 06/10/16
+ * Created by TienLQ on 6/2/16
  */
 @EFragment(R.layout.container_fragment)
-public class ProfileContainerFragment extends BaseContainerFragment {
+public class NewestContainerFragment extends BaseContainerFragment {
 
     @AfterViews
     protected void afterView() {
-//        replaceFragment(MyProfileFragment_.builder().build(), false);
+        replaceFragment(NewestFragment_.builder().build(), false);
     }
 
 }

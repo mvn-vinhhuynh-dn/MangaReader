@@ -1,5 +1,6 @@
 package coder.victorydst3.mangareader.ui.newest;
 
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -20,7 +21,9 @@ import java.util.List;
 
 import coder.victorydst3.mangareader.BaseFragment;
 import coder.victorydst3.mangareader.Common.Constant;
+import coder.victorydst3.mangareader.MainActivity;
 import coder.victorydst3.mangareader.R;
+import coder.victorydst3.mangareader.containerFragment.NewestContainerFragment_;
 import coder.victorydst3.mangareader.model.Manga;
 import coder.victorydst3.mangareader.ui.detail.DetailActivity_;
 import coder.victorydst3.mangareader.widget.SpacesItemDecoration;
@@ -43,8 +46,8 @@ public class NewestFragment extends BaseFragment implements ListMangaAdapter.OnI
     private ListMangaAdapter mAdapter;
     private List<Manga> mData = new ArrayList<>();
 
+    @Override
     protected void afterView() {
-
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), NUM_OF_COLUMN);
         mRecyclerView.setLayoutManager(gridLayoutManager);
 
@@ -155,8 +158,12 @@ public class NewestFragment extends BaseFragment implements ListMangaAdapter.OnI
     @Override
     public void onItemClick(int position) {
         Manga manga = mData.get(position);
-        replaceFragment(DetailActivity_.builder().mManga(Parcels.wrap(manga)).build(), true);
-//        DetailActivity_.intent(this).mManga(Parcels.wrap(manga)).start();
+        if (getActivity() instanceof MainActivity) {
+            Fragment fragment = ((MainActivity) getActivity()).getBaseCurrentFragment();
+            if (fragment instanceof NewestContainerFragment_) {
+                replaceFragment(DetailActivity_.builder().mManga(Parcels.wrap(manga)).build(), false);
+            }
+        }
     }
 }
 
