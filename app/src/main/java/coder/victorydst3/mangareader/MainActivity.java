@@ -2,6 +2,7 @@ package coder.victorydst3.mangareader;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
@@ -11,13 +12,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import coder.victorydst3.mangareader.apdapter.PagerAdapter;
+import coder.victorydst3.mangareader.api.RestClient;
 import coder.victorydst3.mangareader.containerFragment.BaseContainerFragment;
 import coder.victorydst3.mangareader.containerFragment.FavoriteContainerFragment_;
 import coder.victorydst3.mangareader.containerFragment.HomeContainerFragment_;
 import coder.victorydst3.mangareader.containerFragment.NewestContainerFragment_;
 import coder.victorydst3.mangareader.model.HomePageItem;
+import coder.victorydst3.mangareader.model.ResponseData;
 import coder.victorydst3.mangareader.ui.setting.SettingFragment_;
 import coder.victorydst3.mangareader.widget.HeaderBar;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends BaseActivity {
@@ -52,6 +58,22 @@ public class MainActivity extends BaseActivity {
 
         mToolBar.setToolBarTitle(tabItems.get(0).getTitle());
         setupTabIcons();
+        fakeData();
+    }
+
+
+    public void fakeData() {
+        RestClient.getClient(this).login("username", "password").enqueue(new Callback<ResponseData>() {
+            @Override
+            public void onResponse(Call<ResponseData> call, Response<ResponseData> response) {
+                Log.d("MainActivity", response.body().getData().toString());
+            }
+
+            @Override
+            public void onFailure(Call<ResponseData> call, Throwable t) {
+
+            }
+        });
     }
 
     private void setupTabIcons() {
