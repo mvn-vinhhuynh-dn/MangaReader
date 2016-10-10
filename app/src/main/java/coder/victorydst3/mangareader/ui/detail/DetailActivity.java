@@ -3,13 +3,11 @@ package coder.victorydst3.mangareader.ui.detail;
 import android.os.Parcelable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
-import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
-import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.Extra;
-import org.androidannotations.annotations.UiThread;
-import org.androidannotations.annotations.ViewById;
+import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.FragmentArg;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -20,8 +18,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import coder.victorydst3.mangareader.BaseActivity;
+import coder.victorydst3.mangareader.BaseListFragment;
 import coder.victorydst3.mangareader.Common.Constant;
+import coder.victorydst3.mangareader.LoadMoreAdapter;
 import coder.victorydst3.mangareader.OnReadMangaListener;
 import coder.victorydst3.mangareader.R;
 import coder.victorydst3.mangareader.model.Chapter;
@@ -33,13 +32,11 @@ import coder.victorydst3.mangareader.ui.reader.ReaderActivity_;
  * Copyright © 2016 AsianTech inc.
  * Created by VinhHLB on 9/27/16.
  */
-@EActivity(R.layout.activity_detail)
-public class DetailActivity extends BaseActivity implements OnReadMangaListener {
+@EFragment(R.layout.activity_detail)
+public class DetailActivity extends BaseListFragment<LoadMoreAdapter> implements OnReadMangaListener {
     private static final String TAG = DetailActivity.class.getSimpleName();
-    @ViewById(R.id.recyclerView)
-    RecyclerView mRecyclerView;
 
-    @Extra
+    @FragmentArg
     Parcelable mManga;
 
     private Manga mData;
@@ -48,11 +45,13 @@ public class DetailActivity extends BaseActivity implements OnReadMangaListener 
     private MangaDetail mDetail;
     private List<Chapter> mChapters = new ArrayList<>();
 
-    @AfterViews
-    void AfterViews() {
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+    @Override
+    protected void afterView() {
+        super.afterView();
+        mAdapter = new DetailAdapter(getActivity(), mDetail, this);
         mData = (Manga) Parcels.unwrap(mManga);
         getDetail();
+
     }
 
     @Background
@@ -99,20 +98,37 @@ public class DetailActivity extends BaseActivity implements OnReadMangaListener 
         String status = lis_detail.get(4).select("div.item2").text();
         mData.setStatus(status);
         mData.setImageUrl(imgThub);
-//        mDetail.setManga(mData);
-//        mDetail.setChapters(mChapters);
-        mDetail = MangaDetail.builder().chapters(mChapters).manga(mData).build();
-        UpdateUI();
+        if (mDetail != null) {
+            mDetail.setManga(mData);
+            mDetail.setChapters(mChapters);
+            mDetail = MangaDetail.builder().chapters(mChapters).manga(mData).build();
+            getAdapter().notifyDataSetChanged();
+            Log.d("DetailActivity", "parserData");
+
+        } else {
+            Log.d("DetailActivity", "mDetail null");
+
+        }
+
+
     }
 
-    @UiThread
-    void UpdateUI() {
-        mAdapter = new DetailAdapter(this, mDetail, this);
-        mRecyclerView.setAdapter(mAdapter);
-    }
 
     @Override
     public void onReadMangaClick(String url) {
         ReaderActivity_.intent(this).mUrl(url).start();
     }
+
+    @Override
+    protected LoadMoreAdapter initAdapter() {
+        Log.d("DetailActivity", "initAdapter");
+        return new LoadMoreAdapter(getActivity(), mAdapter);
+    }
+
+    @Override
+    protected RecyclerView.LayoutManager getLayoutManager() {
+        return new LinearLayoutManager(getActivity());
+    }
+
+
 }

@@ -14,6 +14,11 @@
     <string name="nav_item_friends">Bạn bè</string>
     <string name="nav_item_notifications">Tin nhắn</string>
     <string name="title_home">Home</string>
+    <string name="tv_home_news">News</string>
+    <string name="tv_main_news">Newsest</string>
+    <string name="tv_main_home">Home</string>
+    <string name="tv_main_favotite">Favorite</string>
+    <string name="tv_main_settings">Settings</string>
 
     <!-- navigation drawer item labels  -->
     <string-array name="nav_drawer_labels">

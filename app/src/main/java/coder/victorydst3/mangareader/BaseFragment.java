@@ -1,22 +1,47 @@
 package coder.victorydst3.mangareader;
 
-import android.app.Activity;
 import android.support.v4.app.Fragment;
 
-/**
- * Copyright © 2016 AsianTech inc.
- * Created by Thang Truong on 1/6/16.
- */
-public class BaseFragment extends Fragment {
-    private Activity mActivity;
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.EFragment;
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        try {
-            mActivity = activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString() + " must implement OnBaseActivityListener");
-        }
+import coder.victorydst3.mangareader.containerFragment.BaseContainerFragment;
+
+@EFragment
+public abstract class BaseFragment extends Fragment {
+    private static final String TAG = BaseFragment.class.getSimpleName();
+
+    @AfterViews
+    protected abstract void afterView();
+
+    /**
+     * @param fragment:       new fragment for show
+     * @param viewRoot:       id view root
+     * @param allowBackPress: if allowBackPress= true has even handle back press
+     */
+
+    /**
+     * Add new child fragment on page
+     *
+     * @param fragment    new child fragment
+     * @param isBackStack true or false
+     */
+    protected void replaceFragment(Fragment fragment, boolean isBackStack) {
+        ((BaseContainerFragment) getParentFragment()).replaceFragment(fragment, isBackStack);
     }
+
+    /**
+     * Add new child fragment on page
+     *
+     * @param fragment    new child fragment
+     * @param isBackStack true or false
+     */
+    protected void replaceViewPagerFragment(Fragment fragment, boolean isBackStack) {
+        ((BaseContainerFragment) getParentFragment()).replaceFragment(fragment, isBackStack);
+    }
+
+    protected void popFragment() {
+        ((BaseContainerFragment) getParentFragment()).popFragment();
+    }
+
 }

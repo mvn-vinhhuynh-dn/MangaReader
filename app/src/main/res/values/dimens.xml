@@ -3,5 +3,9 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="spacing">2dp</dimen>
-    <dimen name="dialog_radius">60dp</dimen>
+    <dimen name="dimens_60dp">60dp</dimen>
+    <dimen name="size_25dp">25dp</dimen>
+    <dimen name="size_5dp">5dp</dimen>
+    <dimen name="size_10dp">10dp</dimen>
+    <dimen name="size_2dp">2dp</dimen>
 </resources>

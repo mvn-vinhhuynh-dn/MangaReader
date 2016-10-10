@@ -16,7 +16,9 @@ public class FavoriteFragment extends BaseFragment {
     @FragmentArg
     String mFragmentTag;
 
-    @AfterViews
-    void afterViews() {
+
+    @Override
+    protected void afterView() {
+
     }
 }

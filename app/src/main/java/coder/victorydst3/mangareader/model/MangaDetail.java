@@ -17,4 +17,6 @@ public class MangaDetail {
     List<Chapter> chapters;
     @Setter
     Manga manga;
+
+
 }
