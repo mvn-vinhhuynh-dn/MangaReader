@@ -23,14 +23,12 @@ public class Utils {
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
     }
 
-
     public static boolean isNetworkAvailable(Context context) {
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
-
    
     public static String getVersion(Context context) {
         try {
@@ -41,7 +39,7 @@ public class Utils {
         }
     }
 
-    public static AppCompatActivity getActivity(Context context) {
+    private static AppCompatActivity getActivity(Context context) {
         if (context instanceof AppCompatActivity) return (AppCompatActivity) context;
         if (context instanceof ContextWrapper) {
             context = ((ContextWrapper) context).getBaseContext();

@@ -81,7 +81,6 @@ public class DetailAdapter extends BaseAdapter<RecyclerView.ViewHolder> {
         }
     }
 
-
     @Override
     public int getItemCount() {
         if (mMangaDetail == null) {

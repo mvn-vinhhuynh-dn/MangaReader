@@ -113,7 +113,6 @@ public class DetailActivity extends BaseListFragment<LoadMoreAdapter> implements
 
     }
 
-
     @Override
     public void onReadMangaClick(String url) {
         ReaderActivity_.intent(this).mUrl(url).start();
@@ -129,6 +128,4 @@ public class DetailActivity extends BaseListFragment<LoadMoreAdapter> implements
     protected RecyclerView.LayoutManager getLayoutManager() {
         return new LinearLayoutManager(getActivity());
     }
-
-
 }

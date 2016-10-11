@@ -1,6 +1,5 @@
 package coder.victorydst3.mangareader.ui.favorite;
 
-import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.FragmentArg;
 
@@ -15,7 +14,6 @@ import coder.victorydst3.mangareader.R;
 public class FavoriteFragment extends BaseFragment {
     @FragmentArg
     String mFragmentTag;
-
 
     @Override
     protected void afterView() {

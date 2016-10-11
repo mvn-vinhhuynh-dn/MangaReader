@@ -15,7 +15,6 @@ public class SettingFragment extends BaseFragment {
     @FragmentArg
     String mFragmentTag;
 
-
     @Override
     protected void afterView() {
 

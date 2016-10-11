@@ -166,4 +166,3 @@ public class NewestFragment extends BaseFragment implements ListMangaAdapter.OnI
         }
     }
 }
-
