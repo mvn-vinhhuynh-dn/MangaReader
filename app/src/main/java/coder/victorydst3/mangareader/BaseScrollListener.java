@@ -10,14 +10,14 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
  * Created by lantm-mac-air on 3/29/16
  * Class for handler event On scroll of recyclerView
  */
-public abstract class BaseScrollListener extends RecyclerView.OnScrollListener {
+abstract class BaseScrollListener extends RecyclerView.OnScrollListener {
     // Load before 2 item .
-    private static final int OFFSET = 2;
+    private static final int OFFSET = 0;
     private static final int NUMBER_ARRAY = 2;
 
     private final RecyclerView.LayoutManager mLayoutManager;
 
-    public BaseScrollListener(@NonNull RecyclerView.LayoutManager layoutManager) {
+    BaseScrollListener(@NonNull RecyclerView.LayoutManager layoutManager) {
         this.mLayoutManager = layoutManager;
     }
 
@@ -47,7 +47,6 @@ public abstract class BaseScrollListener extends RecyclerView.OnScrollListener {
                 firstVisibleItemPositions[1] = RecyclerView.NO_POSITION;
             }
         }
-
         if (firstVisibleItem + visibleItemCount + OFFSET >= totalItemCount) {
             onLoadMore();
         }

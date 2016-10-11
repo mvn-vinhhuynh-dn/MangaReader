@@ -40,10 +40,10 @@ public class DetailFragment extends BaseListFragment<LoadMoreAdapter> implements
     Parcelable mManga;
 
     private Manga mData;
-    private DetailAdapter mAdapter;
 
     private MangaDetail mDetail = new MangaDetail();
     private List<Chapter> mChapters = new ArrayList<>();
+    private LinearLayoutManager mLinearLayoutManager;
 
     @Override
     protected void afterView() {
@@ -54,6 +54,8 @@ public class DetailFragment extends BaseListFragment<LoadMoreAdapter> implements
 
     @Background
     void getDetail() {
+        mIsLoading = true;
+        mFinished = false;
         Document document = null;
         try {
             document = Jsoup.connect(Constant.BASE_URL + mData.getProcessUrl())
@@ -103,7 +105,15 @@ public class DetailFragment extends BaseListFragment<LoadMoreAdapter> implements
 
     @UiThread
     void UpdateUI() {
+        mFinished = true;
+        mIsLoading = false;
         getAdapter().notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onLoadMore() {
+        onPreRequest(false);
+        getDetail();
     }
 
     @Override
@@ -113,12 +123,12 @@ public class DetailFragment extends BaseListFragment<LoadMoreAdapter> implements
 
     @Override
     protected LoadMoreAdapter initAdapter() {
-        mAdapter = new DetailAdapter(getActivity(), mDetail, this);
-        return new LoadMoreAdapter(getActivity(), mAdapter);
+        return new LoadMoreAdapter(getActivity(), new DetailAdapter(getActivity(), mDetail, this));
     }
 
     @Override
     protected RecyclerView.LayoutManager getLayoutManager() {
-        return new LinearLayoutManager(getActivity());
+        mLinearLayoutManager = new LinearLayoutManager(getActivity());
+        return mLinearLayoutManager;
     }
 }

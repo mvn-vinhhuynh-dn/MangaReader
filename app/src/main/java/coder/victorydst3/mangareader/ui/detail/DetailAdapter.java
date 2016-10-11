@@ -22,7 +22,7 @@ import coder.victorydst3.mangareader.model.MangaDetail;
  * Created by VinhHLB on 9/27/16.
  */
 
-public class DetailAdapter extends BaseAdapter<RecyclerView.ViewHolder> {
+class DetailAdapter extends BaseAdapter<RecyclerView.ViewHolder> {
     /**
      * Enum define for item type
      */
@@ -34,7 +34,7 @@ public class DetailAdapter extends BaseAdapter<RecyclerView.ViewHolder> {
     private MangaDetail mMangaDetail;
     private final OnReadMangaListener mOnReadMangaListener;
 
-    public DetailAdapter(@NonNull Context context, MangaDetail mangaDetail, OnReadMangaListener onReadMangaListener) {
+    DetailAdapter(@NonNull Context context, MangaDetail mangaDetail, OnReadMangaListener onReadMangaListener) {
         super(context);
         mContext = context;
         mMangaDetail = mangaDetail;

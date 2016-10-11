@@ -25,20 +25,22 @@ public abstract class BaseListFragment<A extends BaseAdapter> extends BaseFragme
 
     private static final String TAG = BaseListFragment.class.getSimpleName();
 
-    protected final int NUMBER_ITEM_ROW = 2;
-
     protected boolean mFinished;
     protected int mPage = 1;
     @Getter
     @Accessors(prefix = "m")
     protected A mAdapter;
+
     @ViewById(R.id.swipeRefreshLayout)
     protected SwipeRefreshLayout mSwipeRefreshLayout;
+
     @ViewById(R.id.recyclerView)
     protected RecyclerView mRecyclerView;
+
     @ViewById(R.id.progressBar)
     protected ProgressBar mProgressBar;
-    private boolean mIsLoading;
+
+    protected boolean mIsLoading;
 
     protected abstract A initAdapter();
 
@@ -136,7 +138,7 @@ public abstract class BaseListFragment<A extends BaseAdapter> extends BaseFragme
      * This method is used to check can load more data
      */
     private boolean canLoadMore() {
-        return !mIsLoading && !mFinished;
+        return !mIsLoading && mFinished;
     }
 
     /**
