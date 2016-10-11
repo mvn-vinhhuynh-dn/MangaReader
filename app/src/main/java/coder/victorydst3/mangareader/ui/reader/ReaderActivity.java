@@ -3,6 +3,7 @@ package coder.victorydst3.mangareader.ui.reader;
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,6 +73,7 @@ public class ReaderActivity extends BaseActivity {
         for (Element element : script) {
             for (DataNode node : element.dataNodes()) {
                 if (node.getWholeData() != null) {
+                    Log.d("VINH", "parserData: " + node.getWholeData());
                     mListUrl.addAll(ScriptParser.extractLinks(node.getWholeData()));
                     updateUI();
                     return;

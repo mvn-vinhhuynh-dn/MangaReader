@@ -3,6 +3,7 @@ package coder.victorydst3.mangareader.ui.detail;
 import android.os.Parcelable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EFragment;
@@ -112,12 +113,14 @@ public class DetailFragment extends BaseListFragment<LoadMoreAdapter> implements
 
     @Override
     protected void onLoadMore() {
+        super.onLoadMore();
         onPreRequest(false);
         getDetail();
     }
 
     @Override
     public void onReadMangaClick(String url) {
+        Log.d(TAG, "onReadMangaClick: " + url);
         ReaderActivity_.intent(this).mUrl(url).start();
     }
 
