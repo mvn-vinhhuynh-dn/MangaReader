@@ -25,7 +25,7 @@ import coder.victorydst3.mangareader.MainActivity;
 import coder.victorydst3.mangareader.R;
 import coder.victorydst3.mangareader.containerFragment.NewestContainerFragment_;
 import coder.victorydst3.mangareader.model.Manga;
-import coder.victorydst3.mangareader.ui.detail.DetailActivity_;
+import coder.victorydst3.mangareader.ui.detail.DetailFragment_;
 import coder.victorydst3.mangareader.widget.SpacesItemDecoration;
 
 /**
@@ -158,10 +158,11 @@ public class NewestFragment extends BaseFragment implements ListMangaAdapter.OnI
     @Override
     public void onItemClick(int position) {
         Manga manga = mData.get(position);
+
         if (getActivity() instanceof MainActivity) {
             Fragment fragment = ((MainActivity) getActivity()).getBaseCurrentFragment();
             if (fragment instanceof NewestContainerFragment_) {
-                replaceFragment(DetailActivity_.builder().mManga(Parcels.wrap(manga)).build(), false);
+                replaceFragment(DetailFragment_.builder().mManga(Parcels.wrap(manga)).build(), false);
             }
         }
     }

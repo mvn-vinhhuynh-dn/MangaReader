@@ -49,7 +49,7 @@ public abstract class BaseListFragment<A extends BaseAdapter> extends BaseFragme
         initRecyclerView();
     }
 
-    private void initRecyclerView() {
+    public void initRecyclerView() {
         mAdapter = initAdapter();
         RecyclerView.LayoutManager layoutManager = getLayoutManager();
         mRecyclerView.setLayoutManager(layoutManager);

@@ -8,6 +8,7 @@ import android.util.Log;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.FragmentArg;
+import org.androidannotations.annotations.UiThread;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -32,9 +33,9 @@ import coder.victorydst3.mangareader.ui.reader.ReaderActivity_;
  * Copyright © 2016 AsianTech inc.
  * Created by VinhHLB on 9/27/16.
  */
-@EFragment(R.layout.activity_detail)
-public class DetailActivity extends BaseListFragment<LoadMoreAdapter> implements OnReadMangaListener {
-    private static final String TAG = DetailActivity.class.getSimpleName();
+@EFragment(R.layout.fragment_detail)
+public class DetailFragment extends BaseListFragment<LoadMoreAdapter> implements OnReadMangaListener {
+    private static final String TAG = DetailFragment.class.getSimpleName();
 
     @FragmentArg
     Parcelable mManga;
@@ -48,10 +49,10 @@ public class DetailActivity extends BaseListFragment<LoadMoreAdapter> implements
     @Override
     protected void afterView() {
         super.afterView();
+        Log.d(TAG, "afterView: ");
         mAdapter = new DetailAdapter(getActivity(), mDetail, this);
-        mData = (Manga) Parcels.unwrap(mManga);
+        mData = Parcels.unwrap(mManga);
         getDetail();
-
     }
 
     @Background
@@ -98,19 +99,13 @@ public class DetailActivity extends BaseListFragment<LoadMoreAdapter> implements
         String status = lis_detail.get(4).select("div.item2").text();
         mData.setStatus(status);
         mData.setImageUrl(imgThub);
-        if (mDetail != null) {
-            mDetail.setManga(mData);
-            mDetail.setChapters(mChapters);
-            mDetail = MangaDetail.builder().chapters(mChapters).manga(mData).build();
-            getAdapter().notifyDataSetChanged();
-            Log.d("DetailActivity", "parserData");
+        mDetail = MangaDetail.builder().chapters(mChapters).manga(mData).build();
+        UpdateUI();
+    }
 
-        } else {
-            Log.d("DetailActivity", "mDetail null");
-
-        }
-
-
+    @UiThread
+    void UpdateUI() {
+        getAdapter().notifyDataSetChanged();
     }
 
     @Override
@@ -120,7 +115,7 @@ public class DetailActivity extends BaseListFragment<LoadMoreAdapter> implements
 
     @Override
     protected LoadMoreAdapter initAdapter() {
-        Log.d("DetailActivity", "initAdapter");
+        Log.d(TAG, "initAdapter: ");
         return new LoadMoreAdapter(getActivity(), mAdapter);
     }
 

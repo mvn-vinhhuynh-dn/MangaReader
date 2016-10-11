@@ -85,9 +85,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
         handBackPress();
-
     }
 
     public void handBackPress() {
