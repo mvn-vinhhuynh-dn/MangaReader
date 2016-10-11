@@ -17,7 +17,7 @@ buildscript {
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "23.0.1"
+    buildToolsVersion "24.0.2"
     defaultConfig {
         applicationId "coder.victorydst3.mangareader"
         minSdkVersion 15
@@ -87,5 +87,4 @@ dependencies {
     compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
 
 }
-
 apply from: "https://raw.githubusercontent.com/tientun/gradle-android-ci-check/master/ci.gradle"
