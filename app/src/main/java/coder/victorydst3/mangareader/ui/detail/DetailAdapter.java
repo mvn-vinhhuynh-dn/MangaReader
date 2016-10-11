@@ -3,6 +3,7 @@ package coder.victorydst3.mangareader.ui.detail;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +31,7 @@ public class DetailAdapter extends BaseAdapter<RecyclerView.ViewHolder> {
     }
 
     private final Context mContext;
-    private final MangaDetail mMangaDetail;
+    private MangaDetail mMangaDetail;
     private final OnReadMangaListener mOnReadMangaListener;
 
     public DetailAdapter(@NonNull Context context, MangaDetail mangaDetail, OnReadMangaListener onReadMangaListener) {
@@ -76,6 +77,7 @@ public class DetailAdapter extends BaseAdapter<RecyclerView.ViewHolder> {
             headerViewHolder.mTvName.setText(mMangaDetail.getManga().getName());
             Glide.with(mContext).load(mMangaDetail.getManga().getImageUrl()).into(headerViewHolder.mImgContent);
         } else if (holder instanceof ItemViewHolder) {
+            Log.d("VVVV", "onBindViewHolder: 2" + position);
             ItemViewHolder itemViewHolder = (ItemViewHolder) holder;
             itemViewHolder.mTvContent.setText(mMangaDetail.getChapters().get(position - 1).getTitle());
         }
@@ -83,8 +85,8 @@ public class DetailAdapter extends BaseAdapter<RecyclerView.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        if (mMangaDetail == null) {
-            return 2;
+        if (mMangaDetail == null || mMangaDetail.getChapters() == null) {
+            return 0;
         }
         return mMangaDetail.getChapters().size() + 1;
     }

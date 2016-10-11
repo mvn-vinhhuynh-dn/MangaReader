@@ -3,7 +3,6 @@ package coder.victorydst3.mangareader.ui.detail;
 import android.os.Parcelable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EFragment;
@@ -43,14 +42,12 @@ public class DetailFragment extends BaseListFragment<LoadMoreAdapter> implements
     private Manga mData;
     private DetailAdapter mAdapter;
 
-    private MangaDetail mDetail;
+    private MangaDetail mDetail = new MangaDetail();
     private List<Chapter> mChapters = new ArrayList<>();
 
     @Override
     protected void afterView() {
         super.afterView();
-        Log.d(TAG, "afterView: ");
-        mAdapter = new DetailAdapter(getActivity(), mDetail, this);
         mData = Parcels.unwrap(mManga);
         getDetail();
     }
@@ -99,7 +96,8 @@ public class DetailFragment extends BaseListFragment<LoadMoreAdapter> implements
         String status = lis_detail.get(4).select("div.item2").text();
         mData.setStatus(status);
         mData.setImageUrl(imgThub);
-        mDetail = MangaDetail.builder().chapters(mChapters).manga(mData).build();
+        mDetail.setChapters(mChapters);
+        mDetail.setManga(mData);
         UpdateUI();
     }
 
@@ -115,7 +113,7 @@ public class DetailFragment extends BaseListFragment<LoadMoreAdapter> implements
 
     @Override
     protected LoadMoreAdapter initAdapter() {
-        Log.d(TAG, "initAdapter: ");
+        mAdapter = new DetailAdapter(getActivity(), mDetail, this);
         return new LoadMoreAdapter(getActivity(), mAdapter);
     }
 

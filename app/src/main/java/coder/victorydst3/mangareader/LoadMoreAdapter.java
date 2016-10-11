@@ -70,7 +70,7 @@ public class LoadMoreAdapter extends BaseAdapter {
             // last item
             return LOAD_MORE_TYPE;
         }
-        return mAdapter.getItemViewType(position) + 1;
+        return mAdapter.getItemViewType(position) ;
     }
 
     /**

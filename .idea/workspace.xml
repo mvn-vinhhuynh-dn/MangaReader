@@ -6,24 +6,23 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="initAdapter" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="UpdateUI" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17d77568-1666-4a35-ba9c-f44b49574615" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/ui/detail/DetailActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/ui/detail/DetailFragment.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_detail.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_detail.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/BaseListFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/BaseListFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/ui/newest/NewestFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/ui/newest/NewestFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/LoadMoreAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/LoadMoreAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/model/MangaDetail.java" afterPath="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/model/MangaDetail.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/ui/detail/DetailAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/ui/detail/DetailAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/ui/detail/DetailFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/ui/detail/DetailFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_header_detail.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_header_detail.xml" />
     </list>
     <ignored path="MangaReader.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,29 +55,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DetailFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/ui/detail/DetailFragment.java">
+      <file leaf-file-name="DetailAdapter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/ui/detail/DetailAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="50" column="20" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
+            <state relative-caret-position="157">
+              <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
               <folding>
-                <element signature="e#4027#4028#0" expanded="true" />
-                <element signature="e#4078#4079#0" expanded="true" />
-                <element signature="e#4140#4141#0" expanded="true" />
-                <element signature="e#4202#4203#0" expanded="true" />
+                <element signature="e#2296#2370#0" expanded="false" />
+                <marker date="1476157473000" expanded="false" signature="2421:2496" ph="&quot;Lần đọc: {mMangaDetail.getManga().getNumRead()}&quot;" />
+                <marker date="1476157473000" expanded="false" signature="3148:3195" ph="&quot;Thể loại: {category}&quot;" />
+                <marker date="1476157473000" expanded="false" signature="3260:3332" ph="&quot;Tình trạng{mMangaDetail.getManga().getStatus()}&quot;" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BaseListFragment.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/BaseListFragment.java">
+      <file leaf-file-name="item_header_detail.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_header_detail.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+            <state relative-caret-position="45">
+              <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DetailFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/ui/detail/DetailFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
               <folding>
-                <element signature="e#1338#1339#0" expanded="true" />
-                <element signature="e#1372#1373#0" expanded="true" />
+                <element signature="e#3910#3911#0" expanded="true" />
+                <element signature="e#3961#3962#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1982,10 +1994,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/model/NavigationDrawerItem.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/nav_drawer_row.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/ui/menu/DrawerFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/ui/menu/NavigationDrawerAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_drawer.xml" />
@@ -2018,7 +2026,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/widget/SpacesItemDecoration.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_newest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/ui/detail/DetailAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/ui/favorite/FavoriteFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_favorite.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/ui/home/HomeFragment.java" />
@@ -2031,8 +2038,13 @@
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/ui/newest/NewestFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/ui/detail/DetailFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/BaseListFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/LoadMoreAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/BaseAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/model/MangaDetail.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/ui/detail/DetailFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_header_detail.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/ui/detail/DetailAdapter.java" />
       </list>
     </option>
   </component>
@@ -3273,17 +3285,12 @@
     <option name="LAST_COMMIT_MESSAGE" value="add local file" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/background_new_notification_circle.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/debug/assets/mock.api/user/login.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -3426,14 +3433,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/ui/detail/DetailAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="133" column="0" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_favorite.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -3571,14 +3570,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/BaseAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/BaseScrollListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-33">
@@ -3630,14 +3621,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/model/MangaDetail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/containerFragment/BaseContainerFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -3660,17 +3643,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/recyclerview-v7/24.2.1/recyclerview-v7-24.2.1-sources.jar!/android/support/v7/widget/RecyclerView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="6103" column="26" selection-start-line="6103" selection-start-column="26" selection-end-line="6103" selection-end-column="26" />
-          <folding>
-            <element signature="e#260211#260212#0" expanded="true" />
-            <element signature="e#260262#260263#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/ui/newest/NewestFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1282">
@@ -3679,14 +3651,6 @@
             <element signature="e#5876#5877#0" expanded="true" />
             <element signature="e#5923#5924#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/LoadMoreAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3701,26 +3665,85 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/ui/detail/DetailFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/BaseListFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="50" column="20" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
+          <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
           <folding>
-            <element signature="e#4027#4028#0" expanded="true" />
-            <element signature="e#4078#4079#0" expanded="true" />
-            <element signature="e#4140#4141#0" expanded="true" />
-            <element signature="e#4202#4203#0" expanded="true" />
+            <element signature="e#1338#1339#0" expanded="true" />
+            <element signature="e#1372#1373#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/BaseListFragment.java">
+    <entry file="jar://$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/recyclerview-v7/24.2.1/recyclerview-v7-24.2.1-sources.jar!/android/support/v7/widget/RecyclerView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+        <state relative-caret-position="157">
+          <caret line="5792" column="29" selection-start-line="5792" selection-start-column="29" selection-end-line="5792" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/LoadMoreAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="87" column="27" selection-start-line="87" selection-start-column="27" selection-end-line="87" selection-end-column="27" />
           <folding>
-            <element signature="e#1338#1339#0" expanded="true" />
-            <element signature="e#1372#1373#0" expanded="true" />
+            <element signature="e#1975#1976#0" expanded="true" />
+            <element signature="e#2048#2049#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/BaseAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/model/MangaDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/ui/detail/DetailFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+          <folding>
+            <element signature="e#3910#3911#0" expanded="true" />
+            <element signature="e#3961#3962#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_header_detail.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/coder/victorydst3/mangareader/ui/detail/DetailAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding>
+            <element signature="e#2296#2370#0" expanded="false" />
+            <marker date="1476157473000" expanded="false" signature="2421:2496" ph="&quot;Lần đọc: {mMangaDetail.getManga().getNumRead()}&quot;" />
+            <marker date="1476157473000" expanded="false" signature="3148:3195" ph="&quot;Thể loại: {category}&quot;" />
+            <marker date="1476157473000" expanded="false" signature="3260:3332" ph="&quot;Tình trạng{mMangaDetail.getManga().getStatus()}&quot;" />
           </folding>
         </state>
       </provider>
