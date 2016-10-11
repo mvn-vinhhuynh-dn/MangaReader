@@ -17,7 +17,7 @@ buildscript {
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "24.0.2"
+    buildToolsVersion "22.0.1"
     defaultConfig {
         applicationId "coder.victorydst3.mangareader"
         minSdkVersion 15
