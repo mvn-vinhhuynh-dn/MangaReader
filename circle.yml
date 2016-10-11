@@ -7,6 +7,7 @@ dependencies:
     - ~/.android
 test:
   override:
+    - chmod +x scripts/saddler.sh
     - scripts/saddler.sh
   post:
     - echo $CIRCLE_TEST_REPORTS
