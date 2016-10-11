@@ -41,10 +41,8 @@ public class MainActivity extends BaseActivity {
         initViewPager();
     }
 
-
     @SuppressWarnings("ResourceType")
-    private void initViewPager() {
-
+    void initViewPager() {
         tabItems.add(new HomePageItem(NewestContainerFragment_.builder().build(), getString(R.string.tv_main_news), R.drawable.ic_main_new));
         tabItems.add(new HomePageItem(HomeContainerFragment_.builder().build(), getString(R.string.tv_main_home), R.drawable.ic_main_new));
         tabItems.add(new HomePageItem(FavoriteContainerFragment_.builder().build(), getString(R.string.tv_main_favotite), R.drawable.ic_main_new));
@@ -61,8 +59,7 @@ public class MainActivity extends BaseActivity {
         fakeData();
     }
 
-
-    public void fakeData() {
+    private void fakeData() {
         RestClient.getClient(this).login("username", "password").enqueue(new Callback<ResponseData>() {
             @Override
             public void onResponse(Call<ResponseData> call, Response<ResponseData> response) {
@@ -88,9 +85,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
         handBackPress();
-
     }
 
     public void handBackPress() {
@@ -108,5 +103,4 @@ public class MainActivity extends BaseActivity {
             }
         }
     }
-
 }

@@ -17,7 +17,7 @@ import coder.victorydst3.mangareader.R;
  */
 @EViewGroup(R.layout.tool_bar_custom)
 public class HeaderBar extends Toolbar {
-    @ViewById(R.id.tvToolBarTitle)
+    @ViewById(R.id.tvHeaderTitle)
     TextView mTvTitle;
 
     public HeaderBar(Context context) {

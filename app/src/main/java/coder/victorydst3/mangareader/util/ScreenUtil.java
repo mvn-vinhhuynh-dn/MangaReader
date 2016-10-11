@@ -85,7 +85,7 @@ public final class ScreenUtil {
         return displayMetrics.scaledDensity;
     }
 
-    public static ScreenSize getScreenSize(Context context) {
+    private static ScreenSize getScreenSize(Context context) {
 
         WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         Display display = windowManager.getDefaultDisplay();
@@ -130,7 +130,7 @@ public final class ScreenUtil {
     /**
      * Check navigation bar for device
      */
-    public static boolean isNavigationBarAvailable() {
+    private static boolean isNavigationBarAvailable() {
         boolean hasBackKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK);
         boolean hasHomeKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_HOME);
         return (!(hasBackKey && hasHomeKey));
@@ -167,7 +167,7 @@ public final class ScreenUtil {
      */
     @Value
     @Builder
-    public static class ScreenSize {
+    private static class ScreenSize {
         private int width;
         private int height;
     }

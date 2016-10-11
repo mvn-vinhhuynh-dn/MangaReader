@@ -3,10 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="headerBarColor">#4DB6AC</color>
     <color name="darkTransparent">#80000000</color>
-    <color name="main_color">#FFD740</color>
-    <color name="background_main">#FFFDE7</color>
+    <color name="main_color">#FFB400</color>
+    <color name="background_main">#FFF8e8</color>
     <color name="unSelect">#fff</color>
     <color name="selected">#000</color>
 </resources>

@@ -17,13 +17,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:tabTextAppearance="@style/LayoutTextAppearance"
+        android:background="@color/main_color"
         app:tabIndicatorHeight="0dp"
-        android:background="@color/main_color" />
+        app:tabTextAppearance="@style/LayoutTextAppearance" />
 
     <coder.victorydst3.mangareader.widget.HeaderBar_
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/header_bar_height"
         app:contentInsetStart="0dp" />
 </RelativeLayout>

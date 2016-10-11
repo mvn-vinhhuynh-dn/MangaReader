@@ -8,6 +8,7 @@ import android.util.Log;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.FragmentArg;
+import org.androidannotations.annotations.UiThread;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -32,30 +33,30 @@ import coder.victorydst3.mangareader.ui.reader.ReaderActivity_;
  * Copyright © 2016 AsianTech inc.
  * Created by VinhHLB on 9/27/16.
  */
-@EFragment(R.layout.activity_detail)
-public class DetailActivity extends BaseListFragment<LoadMoreAdapter> implements OnReadMangaListener {
-    private static final String TAG = DetailActivity.class.getSimpleName();
+@EFragment(R.layout.fragment_detail)
+public class DetailFragment extends BaseListFragment<LoadMoreAdapter> implements OnReadMangaListener {
+    private static final String TAG = DetailFragment.class.getSimpleName();
 
     @FragmentArg
     Parcelable mManga;
 
     private Manga mData;
-    private DetailAdapter mAdapter;
 
-    private MangaDetail mDetail;
+    private MangaDetail mDetail = new MangaDetail();
     private List<Chapter> mChapters = new ArrayList<>();
+    private LinearLayoutManager mLinearLayoutManager;
 
     @Override
     protected void afterView() {
         super.afterView();
-        mAdapter = new DetailAdapter(getActivity(), mDetail, this);
-        mData = (Manga) Parcels.unwrap(mManga);
+        mData = Parcels.unwrap(mManga);
         getDetail();
-
     }
 
     @Background
     void getDetail() {
+        mIsLoading = true;
+        mFinished = false;
         Document document = null;
         try {
             document = Jsoup.connect(Constant.BASE_URL + mData.getProcessUrl())
@@ -98,37 +99,39 @@ public class DetailActivity extends BaseListFragment<LoadMoreAdapter> implements
         String status = lis_detail.get(4).select("div.item2").text();
         mData.setStatus(status);
         mData.setImageUrl(imgThub);
-        if (mDetail != null) {
-            mDetail.setManga(mData);
-            mDetail.setChapters(mChapters);
-            mDetail = MangaDetail.builder().chapters(mChapters).manga(mData).build();
-            getAdapter().notifyDataSetChanged();
-            Log.d("DetailActivity", "parserData");
-
-        } else {
-            Log.d("DetailActivity", "mDetail null");
-
-        }
-
-
+        mDetail.setChapters(mChapters);
+        mDetail.setManga(mData);
+        UpdateUI();
     }
 
+    @UiThread
+    void UpdateUI() {
+        mFinished = true;
+        mIsLoading = false;
+        getAdapter().notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onLoadMore() {
+        super.onLoadMore();
+        onPreRequest(false);
+        getDetail();
+    }
 
     @Override
     public void onReadMangaClick(String url) {
+        Log.d(TAG, "onReadMangaClick: " + url);
         ReaderActivity_.intent(this).mUrl(url).start();
     }
 
     @Override
     protected LoadMoreAdapter initAdapter() {
-        Log.d("DetailActivity", "initAdapter");
-        return new LoadMoreAdapter(getActivity(), mAdapter);
+        return new LoadMoreAdapter(getActivity(), new DetailAdapter(getActivity(), mDetail, this));
     }
 
     @Override
     protected RecyclerView.LayoutManager getLayoutManager() {
-        return new LinearLayoutManager(getActivity());
+        mLinearLayoutManager = new LinearLayoutManager(getActivity());
+        return mLinearLayoutManager;
     }
-
-
 }
