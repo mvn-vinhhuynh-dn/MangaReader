@@ -11,7 +11,7 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "********************"
-echo "* exec gradle      *"
+echo "* exec gradle   huhu   *"
 echo "********************"
 ./gradlew :app:check -PdisablePreDex
 
