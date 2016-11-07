@@ -9,14 +9,16 @@ machine:
         ANDROID_HOME: /usr/local/android-sdk-linux
 
 dependencies:
-    override:
-        - echo y | android update sdk --no-ui --all --filter tools,platform-tools,build-tools-23.0.2,android-23,extra-google-m2repository,extra-google-google_play_services,extra-android-support
-        - ANDROID_HOME=/usr/local/android-sdk-linux ./gradlew dependencies
+   cache_directories:
+       - ~/.android
 
 #test:
 #  override:
 #      - scripts/saddler.sh
 test:
     override:
-        - (./gradlew assemble):
-            timeout: 360
+        - scripts/saddler.sh
+    post:
+        - echo $CIRCLE_TEST_REPORTS
+        - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+        - find . -type d -regex ".*/reports/tests$" -exec cp -r {} $CIRCLE_TEST_REPORTS/junit/ \;
